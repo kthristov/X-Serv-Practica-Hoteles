@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+<script type="text/javascript">
+        $(function() { 
+                $('#home').addClass("active")
+        })
+</script>
+<div class="content">
+
+        <div class="col-lg-8 col-md-8 col-sm-12 ">
+                <div class="lista_alojamientos contenedor col-lg-12">
+                        <h3 class="container_title" > Lista de Alojamientos Comentados</h3>
+
+                        {% for item in alojamientos %}
+                        <div class="alojamiento contenedor">
+                                <img src="{{ item.img.imagen }}">
+                                <div class="alojamiento_info">
+                                        <ul>
+                                                <li><b>Nombre : {{ item.nombre}} </b></li>
+                                                <li><b>Direccion : {{ item.address }} </b></li>
+                                                <li><b>Mas Info : <a href="/alojamientos/{{ item.nombre}} "> {{ item.nombre}}</a> </b></li>
+                                        </ul>
+                                </div>
+                        </div>
+                        {% endfor %}
+                </div>
+        </div>
+
+        <div class=" col-lg-4 col-md-4 col-sm-12 ">
+                <div class="lista_pags contenedor">
+                         <h3 class="container_title" > Lista de Páginas Personales </h3>
+                         <hr>
+                        {% for usuario in usuarios %}
+                                <h4> 
+                                        <b> {{usuario.nombre }} : 
+                                        {% if usuario.nombre_pagina %}
+                                                <a href="/{{ usuario.nombre }}">{{ usuario.nombre_pagina }} </a>
+                                        {% else %}
+                                                <a href="/{{ usuario.nombre }}"> Página de {{ usuario.nombre }}</a>
+                                        {% endif %}
+                                        </b> 
+                                </h4>
+                                <hr>
+                        {% endfor %}
+                </div>
+        </div>
+
+</div>
+{% endblock %}

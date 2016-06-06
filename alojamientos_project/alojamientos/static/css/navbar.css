@@ -1,0 +1,36 @@
+#pestanas {
+	margin: auto;
+	margin-top: 45px ;
+	max-width: 1000px ;
+	width: 97% ;
+	z-index: 100 ;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+
+.pestana {
+	width: 30% ;
+	text-align: center ;
+	z-index: 100 ;
+}
+
+.pestana>li>a {
+	font-family: Indie Flower ;
+	font-weight: bold ;
+	font-size: 18px ;
+	width: 290px ;
+}
+
+.navbar-default .navbar-collapse>.navbar-nav>li.active>a {
+	background-color: #D2D2D2 ;
+	color: #333;
+}
+
+.navbar-default .navbar-collapse>.navbar-nav>li>a:hover {
+	background-color: #D2D2D2 ;
+}
+
+.navbar>.container>.navbar-header>.navbar-brand{
+	font-family: Indie Flower ;
+	font-size: 24px ;
+	font-weight: bold ;
+}

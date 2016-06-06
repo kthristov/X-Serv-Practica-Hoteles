@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}" />
+<script type="text/javascript">
+        $(function() { 
+                $('#about').addClass("active")
+        })
+</script>
+<div class="content">
+
+        <div class="contenedor col-lg-12">
+                <h3 class="container_title" > Información </h3>
+
+                <p> Esta aplicación corresponde a la práctica final de la asignatura de Servicios y Aplicaciones Telemáticas.</p>
+                <p> La practica consiste en la implementación de la parte del servidor que gestiona la lista de alojamientos publicados en la página de la comunidad de Madrid.</p>
+                <p> Algunas funcionalidades son las de creación de páginas personales para cada usuario donde puede guardar sus alojamientos favoritos. Estas páginas personales son públicas y pueden ser consultadas por los visitantes de la página y además las listas de hoteles que haya guardado ese usuario se pueden exportar en formato XML. </p>
+                <p> Todos los alojamientos son listados y pueden ser flitrados en función de su categoría y subcategoría. La aplicación permite que los usuarios puedan dejar sus comentarios para cada alojamientos.</p>
+                <hr>
+                <p>Kaloyan Todorov (k.todorov@outlook.com) </p>
+                <p>Grado en Ingeniería en Tecnología de la Telecomunicación </p>
+                <p>Universidad Rey Juan Carlos</p>
+        </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+.contenedor {
+	padding-bottom: 20px ;
+	padding-right: 20px ;
+	padding-left: 20px ;
+}
+
+.container_title {
+	padding-top: 30px ;
+	padding-bottom: 20px ;
+	padding-right: 20px ;
+	padding-left: 20px ;
+}
+
+img {
+	margin: auto ;
+	max-width: 47% ;
+	margin-bottom: 20px ;
+	margin-left: 20px ;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4) ;
+	border-radius: 5px;
+}
+
+textarea {
+	margin-top : 20px ;
+	width: 100% ;
+}
+	
+#form_button {
+	width: 100% ;
+	margin-bottom: -20px ;
+}
+
+#form_lang {
+	width: 30% ;
+	float : right ;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	{% for alojamiento in alojamientos %}
+	<item>
+		<name><![CDATA[{{alojamiento.nombre}}]]></name>
+		<language><![CDATA[{{alojamiento.language}}]]></language>
+		<descripcion><![CDATA[{{alojamiento.descripcion}}]]></descripcion>
+		<email><![CDATA[{{alojamiento.email}}]]></email>
+		<phone><![CDATA[{{alojamiento.phone}}]]></phone>
+		<web><![CDATA[{{alojamiento.web}}]]></web>
+		<categoria><![CDATA[{{alojamiento.categoria}}]]></categoria>
+		<subcategoria><![CDATA[{{alojamiento.subcategoria}}]]></subcategoria>
+		<address><![CDATA[{{alojamiento.address}}]]></address>
+		<latitude><![CDATA[{{alojamiento.latitude}}]]></latitude>
+		<longitude><![CDATA[{{alojamiento.longitude}}]]></longitude>
+	</item>
+	{% endfor %}
+</items>

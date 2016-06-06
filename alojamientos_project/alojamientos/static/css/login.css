@@ -1,0 +1,25 @@
+#login {
+	padding-top : 8px ; 
+	width: 60% ;
+	float: right;
+}
+
+#id_username {
+	width: 40%  ;
+	float: left;
+}
+
+#id_password {
+	width: 40% ;
+	float: left;
+}
+
+#id_button {
+	border-radius: 0px 4px 4px 0px  ;
+	float: left;
+}
+
+#id_button_span {
+	float: left;
+	width: 20% ;
+}

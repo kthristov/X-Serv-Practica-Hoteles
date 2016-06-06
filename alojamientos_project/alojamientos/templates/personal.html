@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/personal.css' %}" />
+
+<div class="content">
+
+        {% if user_page.nombre == usuario.nombre %}
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
+                <div class="formulario contenedor col-lg-12">
+                {% if user.is_anonymous %}
+
+                {%else%}
+                        
+                                <div class="form-group">
+                                        <label >Nombre de página :</label>
+                                        <input type="text" class="form-control" name="name" form="persform">
+                                </div>
+                                <div class="form-group">
+                                        <label >Color de fondo :</label>
+                                        <input type="text" class="form-control" name="color" form="persform">
+                                </div>
+                                <div class="form-group">
+                                        <label >Tamaño de letra :</label>
+                                        <input type="text" class="form-control" name="tam" form="persform">
+                                </div>
+                                <form action="/{{ user }}"  method="post" id="persform">
+                                        <button id="form_button" type="submit" class="btn btn-primary"><b>Enviar</b></button>
+                                </form>
+                        
+                {% endif %}
+                </div>
+        </div>
+        {% endif %}
+
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
+                <div class="lista_alojamientos contenedor col-lg-12">
+                        <h3 class="container_title" > 
+                                {% if user_page.nombre_pagina %}
+                                        {{ user_page.nombre_pagina }}
+                                {% else %}
+                                        Página de {{ user_page.nombre }}
+                                {% endif %}
+                        </h3>
+
+                        {% for item in alojamientos %}
+                        <div class="alojamiento contenedor">
+                                <img src="{{ item.img.imagen }}">
+                                <div class="alojamiento_info">
+                                        <ul>
+                                                <li><b>Nombre : {{ item.nombre}} </b></li>
+                                                <li><b>Direccion : {{ item.address }} </b></li>
+                                                <li><b>Mas Info : <a href="/alojamientos/{{ item.nombre}} "> {{ item.nombre}}</a> </b></li>
+                                                <li><b>Fecha : {{ item.fecha }}</b></li>
+                                        </ul>
+                                </div>
+                        </div>
+                        {% endfor %}
+                </div>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<header>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                        <div class="navbar-header " style='width: 100%'>
+                                <a class="navbar-brand">
+                                        <b>Alojamientos en Madrid</b>
+                                </a>
+
+                                {% if user.is_anonymous %}
+                                        {% block login %}
+                                                {% include 'registration/login.html' %}
+                                        {% endblock %}
+
+                                {%else%}
+                                        <a id= "user_loggout" class="btn btn-primary" href="{% url 'django.contrib.auth.views.logout' %}">Loggout</a>
+                                        <p id= "user_name">{{ user }} </p>
+
+                                {% endif %}
+                        </div>
+                </div>
+        </nav> 
+</header>

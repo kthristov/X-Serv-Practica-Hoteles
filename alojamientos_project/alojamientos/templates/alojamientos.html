@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/alojamientos.css' %}" />
+<script src="{% static 'js/alojamientos.js' %}"></script>
+
+<script type="text/javascript">
+        $(function() { 
+                $('#alojamientos').addClass("active")
+        })
+</script>
+
+<div class="content">
+
+        <div class="formulario contenedor ">
+
+                <select id = "form_categoria" name="categoria" class="form-control" form="hotelform">
+                        <option>-</option>
+                        <option value="Hoteles">Hoteles</option>
+                        <option value="Hostales">Hostales</option>
+                        <option value="Albergues"> Albergues</option>
+                        <option value="Apartahoteles">Apartahoteles</option>
+                        <option value="Pensiones">Pensiones</option>
+                        <option value="Residencias universitarias">Residencias Universitarias</option>
+                </select>
+                <select id="form_subcategoria" name="subcategoria" class="form-control" form="hotelform">
+                        <option>-</option>
+                </select>
+
+                <form action="/alojamientos"  method="post" id="hotelform">
+                        <button id="form_button" type="submit" class="btn btn-primary">Filtrar</button>
+                </form>
+        </div>
+
+
+        <div id ="lista_alojamientos" class="contenedor ">
+                <h3 class="container_title" > Todos los Alojamientos Disponibles </h3>
+                <ol>
+                        {% for item in lista %}
+                        <li class="item"> 
+                                <a href= "/alojamientos/{{ item.nombre }}">{{ item.nombre}}</a>
+                                <a class="more_info" href="/alojamientos">Más información</a>
+                        </li>
+                        {% endfor %}
+                </ol>
+        </div>
+
+</div>
+
+{% endblock %}

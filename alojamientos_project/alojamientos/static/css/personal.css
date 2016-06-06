@@ -1,0 +1,39 @@
+.content{
+	margin: auto ;
+	margin-top: 20px ;
+	margin-bottom: 50px ;
+	max-width: 1000px ;
+	width: 100% ;
+}
+
+.formulario {
+	padding-bottom: 10px ;
+	padding-top: 10px ;
+}
+
+.lista_alojamientos , .lista_pags {
+	padding-bottom: 10px ;
+	padding-top: 10px ;
+	margin-bottom: 80px ;
+	min-height: 120px ;
+}
+
+.alojamiento {
+	height: 80px ;
+}
+
+.alojamiento>img {
+	float :left ;
+	height: 80px ;
+	width: 140px ;
+	border-radius: 5px 0px 0px 5px ;
+}
+
+.alojamiento_info {
+	margin-left : 120px  ;
+}
+
+#form_button {
+	width: 100% ;
+	margin-bottom: 10px ;
+}

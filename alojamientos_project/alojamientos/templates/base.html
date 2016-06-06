@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+                <meta charset="utf-8">
+                <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+                <title>Alojamiento Madrid</title>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+                <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+
+                <!-- JQuery -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>">
+
+                 <!-- Bootstrap -->
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+                <!-- Google Fonts -->
+                <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+
+                <!-- My Files -->
+                <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+
+                <style>
+                        body {  
+                                {% if usuario %}
+                                        {% if usuario.col_fuente != '-'  %}
+                                                background-color : {{ usuario.col_fuente }} ;
+                                                background-image: none ;
+                                        {% endif %}
+                                        {% if usuario.col_fuente == ''  %}
+                                                background-image: url("{% static 'images/background.jpg' %}") ;
+                                        {% endif %}
+                                {% endif %}
+
+                                {% if usuario.tam_fuente  %}
+                                        font-size : {{ usuario.tam_fuente  }} ;
+                                {% endif %}
+                        }
+                </style>
+
+
+        </head>
+        <body>  
+        <!-- Header -->
+        {% block header %}
+                {% include 'header.html' %}
+        {% endblock %}
+
+        <!-- Navbar-->
+        {% block navbar %}
+            {% include 'navbar.html' %}
+        {% endblock %}
+
+        <!-- Content -->
+        {% block content %}
+        {% endblock %}
+
+        <!-- Footer -->
+        {% block footer %}
+                {% include 'footer.html' %}
+        {% endblock %}
+
+        </body>
+</html>

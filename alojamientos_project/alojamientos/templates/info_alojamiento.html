@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/alojamiento_info.css' %}" />
+<script src="{% static 'js/alojamiento_info.js' %}"></script>
+<div class="content">
+
+        <div class="contenedor">
+                <h3 class="container_title" > {{ alojamiento.nombre }} 
+                        <select id = "form_lang" name="lang" class="form-control" form="commform">
+                                {% for aloj in todos %}
+                                        <option>{{ aloj.language }}</option>
+                                {% endfor %}
+
+                        </select>
+                </h3>
+
+                <div id="imagenes">
+                        {% for imagen in imagenes %}
+                        <img src="{{imagen.imagen}}">
+                        {% endfor %}
+                </div>
+
+                <p><b>Clasificación : {{ alojamiento.categoria }} {{ alojamiento.subcategoria }} </b></p>
+                <p>{{ alojamiento.descripcion }}</p>
+                <p> <b> Teléfono : </b>{{ alojamiento.phone }} </p>
+                <p> <b> Dirección : </b> {{ alojamiento.address }} </p>
+                <p> <b> web : <a href="{{web}}">{{ alojamiento.web }}</b></a></p>
+                <p> <b> eMail : </b> {{ alojamiento.email }} </p>
+
+        </div>
+
+        <div class="contenedor"> 
+
+                {% if user.is_anonymous %}
+                        <form action="/alojamientos/{{ alojamiento.nombre }}"  method="post" id="commform" style='display : none '>
+                                <button id="form_button" type="submit" class="btn btn-primary"><b>Enviar</b></button>
+                        </form>
+                {%else%}
+                        <textarea class="span6" rows="4" name="comentario" placeholder="Deje su comentario..." form="commform" ></textarea>
+                        <form action="/alojamientos/{{ alojamiento.nombre }}"  method="post" id="commform">
+                                <button id="form_button" type="submit" class="btn btn-primary"><b>Enviar</b></button>
+                        </form>
+                {% endif %}
+
+                <h3 class="container_title" > Comentarios 
+
+
+
+                </h3>
+                {% for comentario in comentarios %}
+                        <h4> <b>{{ comentario.usuario }} </b></h4>
+                        <p> {{ comentario.text }}</p>
+                        <hr>
+                {% endfor %}
+        </div>
+</div>
+
+{% endblock %}
